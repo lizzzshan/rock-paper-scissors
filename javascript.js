@@ -13,7 +13,8 @@ function getComputerChoice(moves){
 function playRound(playerSelection, computerSelection){
     // Convert player input to all lowercase
     var player = playerSelection.toLowerCase();
-    if ((player != "rock") ||(player != "paper") || (player != "scissors")){
+    // If the input is invalid and does not exist within the moves array, return an error message
+    if(moves.includes(player)!= true){
         return("Invalid input!");
     }
     if (player == computerSelection){
