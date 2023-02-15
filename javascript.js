@@ -13,6 +13,9 @@ function getComputerChoice(moves){
 function playRound(playerSelection, computerSelection){
     // Convert player input to all lowercase
     var player = playerSelection.toLowerCase();
+    if ((player != "rock") ||(player != "paper") || (player != "scissors")){
+        return("Invalid input!");
+    }
     if (player == computerSelection){
         return("It's a tie!");
     }
