@@ -18,7 +18,8 @@ function playRound(playerSelection, computerSelection){
         return("Invalid input!");
     }
     if (player == computerSelection){
-        return("It's a tie!");
+        console.log("It's a tie!");
+        return("tie");
     }
     // Player win options
     else if((player == "rock" && computerSelection =="scissors")
@@ -42,6 +43,28 @@ function game(){
         let player = prompt("Enter rock, paper, or scissors");
         status = playRound(player, getComputerChoice(moves));
         console.log(status);
+        //update scores of cpu and player
+        if(status == "win"){
+            playerScore +=1; 
+        }
+        else if (status =="lose"){
+            cpuScore+=1;
+        }
+        else if(status == "tie"){
+            cpuScore +=1;
+            playerScore +=1;
+        }
+    }
+
+    //determine winner
+    if(cpuScore > playerScore){
+        console.log("CPU wins!");
+    }
+    else if (cpuScore < playerScore){
+        console.log("You win!");
+    }
+    else{
+        console.log("It's a tie for this round!");
     }
 }
 
