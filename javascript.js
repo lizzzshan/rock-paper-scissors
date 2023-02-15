@@ -9,8 +9,7 @@ function getComputerChoice(moves){
     return moves[Math.floor(Math.random()*moves.length)];
 }
 
-//console.log(getComputerChoice(moves));
-
+//TODO: Catch invalid player selections
 function playRound(playerSelection, computerSelection){
     // Convert player input to all lowercase
     var player = playerSelection.toLowerCase();
@@ -30,13 +29,16 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-console.log(playRound("rocK", getComputerChoice(moves)));
 // Plays the game for 5 rounds and returns the score
 function game(){
     let cpuScore = 0;
     let playerScore = 0;
-    
+    let status = null;
     for (let i =0; i < 5; i++){
-        //TODO: implement game func here 
+        let player = prompt("Enter rock, paper, or scissors");
+        status = playRound(player, getComputerChoice(moves));
+        console.log(status);
     }
 }
+
+game();
